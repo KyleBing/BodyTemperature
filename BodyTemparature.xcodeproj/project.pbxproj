@@ -9,21 +9,24 @@
 /* Begin PBXBuildFile section */
 		27B9F67A23F14993001EFC44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9F67923F14993001EFC44 /* AppDelegate.swift */; };
 		27B9F67C23F14993001EFC44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9F67B23F14993001EFC44 /* SceneDelegate.swift */; };
-		27B9F67E23F14993001EFC44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9F67D23F14993001EFC44 /* ViewController.swift */; };
 		27B9F68123F14993001EFC44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B9F67F23F14993001EFC44 /* Main.storyboard */; };
 		27B9F68323F14997001EFC44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B9F68223F14997001EFC44 /* Assets.xcassets */; };
 		27B9F68623F14997001EFC44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B9F68423F14997001EFC44 /* LaunchScreen.storyboard */; };
+		27B9F68E23F14A45001EFC44 /* TemperatureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9F68D23F14A45001EFC44 /* TemperatureTableViewController.swift */; };
+		27B9F69223F14AD7001EFC44 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B9F69123F14AD7001EFC44 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27B9F67623F14993001EFC44 /* BodyTemparature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyTemparature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B9F67923F14993001EFC44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27B9F67B23F14993001EFC44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		27B9F67D23F14993001EFC44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27B9F68023F14993001EFC44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27B9F68223F14997001EFC44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27B9F68523F14997001EFC44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27B9F68723F14997001EFC44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27B9F68D23F14A45001EFC44 /* TemperatureTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTableViewController.swift; sourceTree = "<group>"; };
+		27B9F68F23F14AD7001EFC44 /* BodyTemparature.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BodyTemparature.entitlements; sourceTree = "<group>"; };
+		27B9F69123F14AD7001EFC44 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B9F69223F14AD7001EFC44 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +44,10 @@
 		27B9F66D23F14993001EFC44 = {
 			isa = PBXGroup;
 			children = (
+				27B9F69323F14AFD001EFC44 /* SupportingFiles */,
 				27B9F67823F14993001EFC44 /* BodyTemparature */,
 				27B9F67723F14993001EFC44 /* Products */,
+				27B9F69023F14AD7001EFC44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +62,31 @@
 		27B9F67823F14993001EFC44 /* BodyTemparature */ = {
 			isa = PBXGroup;
 			children = (
+				27B9F68D23F14A45001EFC44 /* TemperatureTableViewController.swift */,
 				27B9F67923F14993001EFC44 /* AppDelegate.swift */,
-				27B9F67B23F14993001EFC44 /* SceneDelegate.swift */,
-				27B9F67D23F14993001EFC44 /* ViewController.swift */,
 				27B9F67F23F14993001EFC44 /* Main.storyboard */,
-				27B9F68223F14997001EFC44 /* Assets.xcassets */,
-				27B9F68423F14997001EFC44 /* LaunchScreen.storyboard */,
 				27B9F68723F14997001EFC44 /* Info.plist */,
+				27B9F68F23F14AD7001EFC44 /* BodyTemparature.entitlements */,
+				27B9F68223F14997001EFC44 /* Assets.xcassets */,
 			);
 			path = BodyTemparature;
+			sourceTree = "<group>";
+		};
+		27B9F69023F14AD7001EFC44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27B9F69123F14AD7001EFC44 /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27B9F69323F14AFD001EFC44 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				27B9F67B23F14993001EFC44 /* SceneDelegate.swift */,
+				27B9F68423F14997001EFC44 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27B9F67E23F14993001EFC44 /* ViewController.swift in Sources */,
+				27B9F68E23F14A45001EFC44 /* TemperatureTableViewController.swift in Sources */,
 				27B9F67A23F14993001EFC44 /* AppDelegate.swift in Sources */,
 				27B9F67C23F14993001EFC44 /* SceneDelegate.swift in Sources */,
 			);
@@ -284,9 +306,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BodyTemparature/BodyTemparature.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6QFDHMK2;
 				INFOPLIST_FILE = BodyTemparature/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +326,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BodyTemparature/BodyTemparature.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6QFDHMK2;
 				INFOPLIST_FILE = BodyTemparature/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
