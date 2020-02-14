@@ -100,12 +100,14 @@ class TemperatureTableViewController: UITableViewController {
     }
     
     
-    /// 自定义方法：输入 HKSample 输出 日期和温度
-    func getTemperatureAndDate(sample: HKSample) -> (Date, Double) {
+    /// 自定义方法：输入 HKSample 相关参数
+    func getTemperatureAndDate(sample: HKSample) -> (temperature: Double, date: Date, deviceName: String, appName: String) {
         let quantitySample = sample as! HKQuantitySample
         let date = sample.startDate
         let temperature = quantitySample.quantity.doubleValue(for: .degreeCelsius())
-        return (date, temperature)
+        let deviceName = sample.device?.name ?? ""
+        let appName = sample.sourceRevision.source.name
+        return (temperature, date, deviceName, appName)
     }
         
     // MARK: - Table view data source
@@ -120,16 +122,18 @@ class TemperatureTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TemperatureCell", for: indexPath)
-        let (date, temperature) = getTemperatureAndDate(sample: temperatureSamples[indexPath.row])
-        cell.textLabel?.text = String(temperature)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TemperatureCell", for: indexPath) as! TemperatureTableViewCell
+        let sample = getTemperatureAndDate(sample: temperatureSamples[indexPath.row])
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
+        dateFormatter.setLocalizedDateFormatFromTemplate("MM-dd HH:mm")
         dateFormatter.locale = Locale(identifier: "zh_CN")
         
-        cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        cell.labelTitle.text = String(sample.temperature)
+        cell.labelDate.text = dateFormatter.string(from: sample.date)
+        cell.labelDevice.text = sample.deviceName
+        cell.labelApp.text = sample.appName
+        
         return cell
     }
     
@@ -157,7 +161,7 @@ class TemperatureTableViewController: UITableViewController {
                                           end: Date(),
                                           device: HKDevice.local(),
                                           metadata: [
-                                            "app" : "BodyTemperature",
+                                            "app" : "体温",
                                             "version": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
                                           ]
             )
@@ -172,5 +176,4 @@ class TemperatureTableViewController: UITableViewController {
             }
         }
     }
-    
 }
