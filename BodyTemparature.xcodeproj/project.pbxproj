@@ -14,6 +14,7 @@
 		27B9F68623F14997001EFC44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B9F68423F14997001EFC44 /* LaunchScreen.storyboard */; };
 		27B9F68E23F14A45001EFC44 /* TemperatureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9F68D23F14A45001EFC44 /* TemperatureTableViewController.swift */; };
 		27B9F69223F14AD7001EFC44 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B9F69123F14AD7001EFC44 /* HealthKit.framework */; };
+		27E729D323F698E8004F3BC9 /* AddTemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E729D223F698E8004F3BC9 /* AddTemperatureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		27B9F68D23F14A45001EFC44 /* TemperatureTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTableViewController.swift; sourceTree = "<group>"; };
 		27B9F68F23F14AD7001EFC44 /* BodyTemparature.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BodyTemparature.entitlements; sourceTree = "<group>"; };
 		27B9F69123F14AD7001EFC44 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		27E729D223F698E8004F3BC9 /* AddTemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTemperatureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				27B9F68D23F14A45001EFC44 /* TemperatureTableViewController.swift */,
+				27E729D223F698E8004F3BC9 /* AddTemperatureViewController.swift */,
 				27B9F67923F14993001EFC44 /* AppDelegate.swift */,
 				27B9F67F23F14993001EFC44 /* Main.storyboard */,
 				27B9F68723F14997001EFC44 /* Info.plist */,
@@ -163,6 +166,7 @@
 				27B9F68E23F14A45001EFC44 /* TemperatureTableViewController.swift in Sources */,
 				27B9F67A23F14993001EFC44 /* AppDelegate.swift in Sources */,
 				27B9F67C23F14993001EFC44 /* SceneDelegate.swift in Sources */,
+				27E729D323F698E8004F3BC9 /* AddTemperatureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

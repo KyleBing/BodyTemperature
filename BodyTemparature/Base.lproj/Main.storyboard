@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -64,10 +65,47 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ICV-Qr-DJX"/>
+                    <connections>
+                        <segue destination="3jZ-k1-Y1R" kind="presentation" identifier="AddTemperature" id="o48-PM-6LJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLD-HS-ZKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="901" y="96"/>
+        </scene>
+        <!--添加体温记录-->
+        <scene sceneID="wrG-YD-Ndg">
+            <objects>
+                <viewController title="添加体温记录" id="3jZ-k1-Y1R" customClass="AddTemperatureViewController" customModule="BodyTemparature" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U9k-My-Iuk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDB-CT-fZG">
+                                <rect key="frame" x="83" y="180" width="248" height="37"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aDB-CT-fZG" firstAttribute="width" relation="lessThanOrEqual" secondItem="U9k-My-Iuk" secondAttribute="width" multiplier="0.9" id="8ty-Oz-1DC"/>
+                            <constraint firstItem="aDB-CT-fZG" firstAttribute="top" secondItem="7vd-6n-86K" secondAttribute="top" constant="180" id="Clr-Ol-AQx"/>
+                            <constraint firstItem="aDB-CT-fZG" firstAttribute="width" relation="greaterThanOrEqual" secondItem="U9k-My-Iuk" secondAttribute="width" multiplier="0.6" id="gE5-Zq-YZS"/>
+                            <constraint firstItem="aDB-CT-fZG" firstAttribute="centerX" secondItem="7vd-6n-86K" secondAttribute="centerX" id="oaA-uE-QQR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7vd-6n-86K"/>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="aDB-CT-fZG" id="VBy-Sr-brc"/>
+                        <segue destination="68o-ca-nYQ" kind="unwind" identifier="unwindToTVC" unwindAction="unwindToTableViewController:" id="UxW-AW-kWL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvG-Ui-XkF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="68o-ca-nYQ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1804" y="96"/>
         </scene>
     </scenes>
 </document>

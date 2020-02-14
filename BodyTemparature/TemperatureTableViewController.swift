@@ -61,8 +61,7 @@ class TemperatureTableViewController: UITableViewController {
     
     
     @objc func buttonPressed() {
-        print("Button Pressed")
-        // TODO: Add temperature in modal view
+        performSegue(withIdentifier: "AddTemperature", sender: self)
     }
     
     
@@ -144,6 +143,33 @@ class TemperatureTableViewController: UITableViewController {
         alert.addAction(okAction)
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Unwind segue
+    @IBAction func unwindToTableViewController(_ unwindSegue: UIStoryboardSegue) {
+        if let svc = unwindSegue.source as? AddTemperatureViewController{
+            let temperature = Double(svc.textField.text!)!
+            let quantity = HKQuantity(unit: .degreeCelsius(), doubleValue: temperature)
+            let sample = HKQuantitySample(type: queryType,
+                                          quantity: quantity,
+                                          start: Date(),
+                                          end: Date(),
+                                          device: HKDevice.local(),
+                                          metadata: [
+                                            "app" : "BodyTemperature",
+                                            "version": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+                                          ]
+            )
+            kit.save(sample) { (success, error) in
+                if success {
+                    // add to tableView
+                    DispatchQueue.main.async {
+                        self.temperatureSamples.insert(sample, at: 0)
+                        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .right)
+                    }
+                }
+            }
         }
     }
     
