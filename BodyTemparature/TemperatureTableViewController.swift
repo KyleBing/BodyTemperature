@@ -137,6 +137,31 @@ class TemperatureTableViewController: UITableViewController {
         return cell
     }
     
+    // delete
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let actionDelete = UIContextualAction(style: .destructive, title: "删除", handler: {(action, view, bool) in
+            // delete in HealthKit
+            let deletedObject = self.temperatureSamples[indexPath.row]
+            self.kit.delete(deletedObject) { (success, error) in
+                if success {
+                    // delete in tableView
+                    DispatchQueue.main.async {
+                        self.temperatureSamples.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .left)
+                    }
+                } else {
+                    self.showAlert(title: "失败", message: "删除失败", buttonTitle: "知道了")
+                }
+            }
+           
+        })
+        let swipeConfig = UISwipeActionsConfiguration(actions: [actionDelete])
+        return swipeConfig
+    }
+    
+    
+    
+    
     // MARK: - Tool Methods - Alert
     func showAlert(title: String, message: String, buttonTitle: String) {
         let alert = UIAlertController(title: title,
@@ -177,3 +202,4 @@ class TemperatureTableViewController: UITableViewController {
         }
     }
 }
+    
