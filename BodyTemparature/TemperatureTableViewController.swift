@@ -28,8 +28,8 @@ class TemperatureTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        navigationItem.title = "体温记录 top 10"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",
+        navigationItem.title = "体温记录 - 3天"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加",
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(buttonPressed))
@@ -68,18 +68,21 @@ class TemperatureTableViewController: UITableViewController {
     
     func getTemperatureData(){
         
-        /*
+        
         // 时间查询条件对象
         let calendar = Calendar.current
-        let todayStart =  calendar.date(from: calendar.dateComponents([.year,.month,.day], from: Date()))
-        let dayPredicate = HKQuery.predicateForSamples(withStart: todayStart,
-                                                       end: Date(timeInterval: 24*60*60,since: todayStart!),
-                                                       options: HKQueryOptions.strictStartDate) */
+        let dateNow = Date()
+        var date3DaysAgoComponents = calendar.dateComponents([.year, .month, .day], from: dateNow)
+        date3DaysAgoComponents.day = date3DaysAgoComponents.day! - 3
+        let date3DaysAgo = calendar.date(from: date3DaysAgoComponents)!
+        let timePredicate = HKQuery.predicateForSamples(withStart: date3DaysAgo,
+                                                        end: dateNow,
+                                                        options: .strictStartDate)
 
         // 创建查询对象
         let temperatureSampleQuery = HKSampleQuery(sampleType: querySample, // 要获取的类型对象
-                                                   predicate: nil, // 时间参数，为空时则不限制时间
-                                                   limit: 10, // 获取数量
+                                                   predicate: timePredicate, // 时间参数，为空时则不限制时间
+                                                   limit: 100, // 获取数量限制
                                                    sortDescriptors: [NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)]) // 获取到的数据排序方式
         { (query, results, error) in
             /// 获取到结果之后 results 是返回的 [HKSample]?
@@ -89,7 +92,7 @@ class TemperatureTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         self.temperatureSamples.append(sample)
                         self.tableView.insertRows(at: [IndexPath(row: self.temperatureSamples.firstIndex(of: sample)!, section:0)],
-                                                  with: .right   )
+                                                  with: .fade   )
                     }
                 }
             }
