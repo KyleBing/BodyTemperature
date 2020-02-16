@@ -30,6 +30,7 @@
 		27B9F68F23F14AD7001EFC44 /* BodyTemparature.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BodyTemparature.entitlements; sourceTree = "<group>"; };
 		27B9F69123F14AD7001EFC44 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		27BFACB023F6E5D600A10C72 /* TemperatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTableViewCell.swift; sourceTree = "<group>"; };
+		27C05CDD23F96A3F00CFB5DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		27E729D223F698E8004F3BC9 /* AddTemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTemperatureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +49,7 @@
 		27B9F66D23F14993001EFC44 = {
 			isa = PBXGroup;
 			children = (
+				27C05CDD23F96A3F00CFB5DA /* README.md */,
 				27B9F69323F14AFD001EFC44 /* SupportingFiles */,
 				27B9F67823F14993001EFC44 /* BodyTemparature */,
 				27B9F67723F14993001EFC44 /* Products */,
