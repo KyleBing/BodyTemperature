@@ -11,7 +11,11 @@ import UIKit
 class AddTemperatureViewController: UIViewController, UITextFieldDelegate {
     
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: UITextField!{
+        didSet{
+            textField.delegate = self
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         textField.becomeFirstResponder()
@@ -19,8 +23,12 @@ class AddTemperatureViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.removeFromParent()
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

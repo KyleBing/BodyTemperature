@@ -129,7 +129,7 @@ class TemperatureTableViewController: UITableViewController {
         let sample = getTemperatureAndDate(sample: temperatureSamples[indexPath.row])
         
         let dateFormatter = DateFormatter()
-        dateFormatter.setLocalizedDateFormatFromTemplate("MM-dd HH:mm")
+        dateFormatter.dateFormat = "MM-dd HH:mm"
         dateFormatter.locale = Locale(identifier: "zh_CN")
         
         cell.labelTitle.text = String(sample.temperature)
