@@ -35,7 +35,7 @@ class TemperatureTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        navigationItem.title = "体温记录 - 3天"
+        navigationItem.title = "体温"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "添加",
                                                             style: .plain,
                                                             target: self,
@@ -128,13 +128,13 @@ class TemperatureTableViewController: UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "02-13"
-    }
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 30
+//    }
+//
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "02-13"
+//    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
