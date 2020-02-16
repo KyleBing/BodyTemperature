@@ -14,6 +14,13 @@ class TemperatureTableViewController: UITableViewController {
         
     // 存储查询到的数据
     private var temperatureSamples: Array<HKSample> = []
+    private struct Colors {
+        static let purple = UIColor(red: 88/255, green: 86/255, blue: 214/255, alpha: 1)
+        static let magenta = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
+        static let orange = UIColor(red: 255/255, green: 149/255, blue: 0, alpha: 1)
+        static let blue = UIColor(red: 0, green: 122/255, blue: 255/255, alpha: 1)
+    }
+    
     
     
     private var kit: HKHealthStore! {
@@ -108,11 +115,26 @@ class TemperatureTableViewController: UITableViewController {
         let quantitySample = sample as! HKQuantitySample
         let date = sample.startDate
         let temperature = quantitySample.quantity.doubleValue(for: .degreeCelsius())
-        let deviceName = sample.device?.name ?? ""
+        let deviceName = sample.device?.name ?? "--"
         let appName = sample.sourceRevision.source.name
         return (temperature, date, deviceName, appName)
     }
         
+    
+    // MARK: - Table view
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "02-13"
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -129,10 +151,18 @@ class TemperatureTableViewController: UITableViewController {
         let sample = getTemperatureAndDate(sample: temperatureSamples[indexPath.row])
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd HH:mm"
+        dateFormatter.dateFormat = "HH:mm"
         dateFormatter.locale = Locale(identifier: "zh_CN")
         
         cell.labelTitle.text = String(sample.temperature)
+        switch sample.temperature {
+        case 35..<36: cell.labelTitle.textColor = Colors.blue
+        case 36..<37: break
+        case 37..<37.5: cell.labelTitle.textColor = Colors.magenta
+        case 37.5..<38: cell.labelTitle.textColor = Colors.orange
+        case 38...42: cell.labelTitle.textColor = Colors.purple
+        default: break
+        }
         cell.labelDate.text = dateFormatter.string(from: sample.date)
         cell.labelDevice.text = sample.deviceName
         cell.labelApp.text = sample.appName

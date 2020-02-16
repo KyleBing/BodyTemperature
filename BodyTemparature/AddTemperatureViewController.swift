@@ -23,6 +23,7 @@ class AddTemperatureViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "当前体温"
         
     }
     
