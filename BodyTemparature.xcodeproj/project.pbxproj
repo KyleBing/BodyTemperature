@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27B16E6923FA8D39009EBC0A /* TemperatureTableViewCellGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B16E6823FA8D39009EBC0A /* TemperatureTableViewCellGraphic.swift */; };
+		27B16E6B23FA907A009EBC0A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B16E6A23FA907A009EBC0A /* Colors.swift */; };
+		27B4645823FA7A1500527352 /* ClockFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B4645723FA7A1500527352 /* ClockFace.swift */; };
 		27B9F67A23F14993001EFC44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9F67923F14993001EFC44 /* AppDelegate.swift */; };
 		27B9F67C23F14993001EFC44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9F67B23F14993001EFC44 /* SceneDelegate.swift */; };
 		27B9F68123F14993001EFC44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B9F67F23F14993001EFC44 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27B16E6823FA8D39009EBC0A /* TemperatureTableViewCellGraphic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTableViewCellGraphic.swift; sourceTree = "<group>"; };
+		27B16E6A23FA907A009EBC0A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		27B4645723FA7A1500527352 /* ClockFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockFace.swift; sourceTree = "<group>"; };
 		27B9F67623F14993001EFC44 /* 体温.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "体温.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B9F67923F14993001EFC44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27B9F67B23F14993001EFC44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,12 +76,15 @@
 			children = (
 				27B9F68D23F14A45001EFC44 /* TemperatureTableViewController.swift */,
 				27BFACB023F6E5D600A10C72 /* TemperatureTableViewCell.swift */,
+				27B16E6823FA8D39009EBC0A /* TemperatureTableViewCellGraphic.swift */,
 				27E729D223F698E8004F3BC9 /* AddTemperatureViewController.swift */,
 				27B9F67923F14993001EFC44 /* AppDelegate.swift */,
+				27B4645723FA7A1500527352 /* ClockFace.swift */,
 				27B9F67F23F14993001EFC44 /* Main.storyboard */,
 				27B9F68723F14997001EFC44 /* Info.plist */,
 				27B9F68F23F14AD7001EFC44 /* BodyTemparature.entitlements */,
 				27B9F68223F14997001EFC44 /* Assets.xcassets */,
+				27B16E6A23FA907A009EBC0A /* Colors.swift */,
 			);
 			path = BodyTemparature;
 			sourceTree = "<group>";
@@ -169,10 +178,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				27BFACB123F6E5D600A10C72 /* TemperatureTableViewCell.swift in Sources */,
+				27B16E6B23FA907A009EBC0A /* Colors.swift in Sources */,
+				27B4645823FA7A1500527352 /* ClockFace.swift in Sources */,
 				27B9F68E23F14A45001EFC44 /* TemperatureTableViewController.swift in Sources */,
 				27B9F67A23F14993001EFC44 /* AppDelegate.swift in Sources */,
 				27B9F67C23F14993001EFC44 /* SceneDelegate.swift in Sources */,
 				27E729D323F698E8004F3BC9 /* AddTemperatureViewController.swift in Sources */,
+				27B16E6923FA8D39009EBC0A /* TemperatureTableViewCellGraphic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

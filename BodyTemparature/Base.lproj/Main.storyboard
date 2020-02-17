@@ -34,8 +34,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TemperatureCell" rowHeight="50" id="oOh-bC-wQT" customClass="TemperatureTableViewCell" customModule="体温">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TemperatureCellWithGraphic" rowHeight="50" id="GJP-fs-Mf4" userLabel="TemperatureCell-graphic" customClass="TemperatureTableViewCellGraphic" customModule="体温" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GJP-fs-Mf4" id="ujx-D2-lxm">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GJi-7G-zTm">
+                                            <rect key="frame" x="20" y="3" width="374" height="44"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="graphic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0ua-7K-ixV">
+                                                    <rect key="frame" x="0.0" y="7.5" width="83" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="HCC-Uo-goI">
+                                                    <rect key="frame" x="103" y="10" width="207" height="24"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="app" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyc-f9-7wr">
+                                                            <rect key="frame" x="188.5" y="0.0" width="18.5" height="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iphone" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fa9-GI-jy3">
+                                                            <rect key="frame" x="174" y="12" width="33" height="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1GW-QK-XXw" customClass="ClockFace" customModule="体温" customModuleProvider="target">
+                                                    <rect key="frame" x="330" y="0.0" width="44" height="44"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="1GW-QK-XXw" secondAttribute="height" id="2rB-Ku-6CX"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="GJi-7G-zTm" secondAttribute="bottom" constant="3" id="BcT-d9-r0C"/>
+                                        <constraint firstItem="GJi-7G-zTm" firstAttribute="leading" secondItem="ujx-D2-lxm" secondAttribute="leading" constant="20" symbolic="YES" id="OJo-tb-K3j"/>
+                                        <constraint firstItem="GJi-7G-zTm" firstAttribute="top" secondItem="ujx-D2-lxm" secondAttribute="top" constant="3" id="UJJ-94-WYU"/>
+                                        <constraint firstAttribute="trailing" secondItem="GJi-7G-zTm" secondAttribute="trailing" constant="20" symbolic="YES" id="sAW-S7-lEe"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="clockFaceView" destination="1GW-QK-XXw" id="0yV-F0-3AO"/>
+                                    <outlet property="labelApp" destination="dyc-f9-7wr" id="nGg-4P-4l2"/>
+                                    <outlet property="labelDevice" destination="fa9-GI-jy3" id="dGG-gY-W5e"/>
+                                    <outlet property="labelTitle" destination="0ua-7K-ixV" id="T8r-p4-HNe"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TemperatureCell" rowHeight="50" id="oOh-bC-wQT" customClass="TemperatureTableViewCell" customModule="体温">
+                                <rect key="frame" x="0.0" y="78" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oOh-bC-wQT" id="Evh-kc-L4l">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -52,16 +110,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="8Eu-ug-Exw">
-                                                    <rect key="frame" x="155" y="10" width="139" height="24"/>
+                                                    <rect key="frame" x="155" y="10" width="148" height="24"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="app" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zp-Cf-jT0">
-                                                            <rect key="frame" x="120.5" y="0.0" width="18.5" height="12"/>
+                                                            <rect key="frame" x="129.5" y="0.0" width="18.5" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iphone" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTn-vh-mct">
-                                                            <rect key="frame" x="106" y="12" width="33" height="12"/>
+                                                            <rect key="frame" x="115" y="12" width="33" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -69,10 +127,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:34" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhf-7H-47E">
-                                                    <rect key="frame" x="314" y="10" width="60" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="kHU-Wu-hCJ"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="323" y="10" width="51" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
