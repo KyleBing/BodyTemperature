@@ -29,7 +29,7 @@ class TemperatureTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.addSubview(ClockFace(frame: CGRect(x: 0, y: 0, width: 300, height: 300)))
+        tableView.addSubview(ClockFace(frame: CGRect(x: 0, y: 0, width: tableView.bounds.maxX, height: tableView.bounds.maxX)))
         
         
         
@@ -139,13 +139,9 @@ class TemperatureTableViewController: UITableViewController {
         return temperatureSamples.count
     }
     
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "TemperatureCell", for: indexPath) as! TemperatureTableViewCell
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TemperatureCellWithGraphic", for: indexPath) as! TemperatureTableViewCellGraphic
-
-        /*
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TemperatureCell", for: indexPath) as! TemperatureTableViewCell
         let sample = getTemperatureAndDate(sample: temperatureSamples[indexPath.row])
         
         let dateFormatter = DateFormatter()
@@ -165,8 +161,15 @@ class TemperatureTableViewController: UITableViewController {
         cell.labelDate.text = dateFormatter.string(from: sample.date)
         cell.labelDevice.text = sample.deviceName
         cell.labelApp.text = sample.appName
- */
         
+        return cell
+    }
+    */
+    
+    // graphic version
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TemperatureCellWithGraphic", for: indexPath) as! TemperatureTableViewCellGraphic
         let sample = getTemperatureAndDate(sample: temperatureSamples[indexPath.row])
         
         let dateFormatter = DateFormatter()
@@ -188,6 +191,15 @@ class TemperatureTableViewController: UITableViewController {
         
         return cell
     }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
     
     // delete
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
