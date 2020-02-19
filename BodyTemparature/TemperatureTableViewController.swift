@@ -29,7 +29,7 @@ class TemperatureTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.addSubview(ClockFace(frame: CGRect(x: 0, y: 0, width: tableView.bounds.maxX, height: tableView.bounds.maxX)))
+//        tableView.addSubview(ClockFace(frame: CGRect(x: 0, y: 0, width: tableView.bounds.maxX, height: tableView.bounds.maxX)))
         
         
         
@@ -139,7 +139,7 @@ class TemperatureTableViewController: UITableViewController {
         return temperatureSamples.count
     }
     
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TemperatureCell", for: indexPath) as! TemperatureTableViewCell
         let sample = getTemperatureAndDate(sample: temperatureSamples[indexPath.row])
@@ -164,8 +164,8 @@ class TemperatureTableViewController: UITableViewController {
         
         return cell
     }
-    */
     
+    /*
     // graphic version
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -191,7 +191,7 @@ class TemperatureTableViewController: UITableViewController {
         
         return cell
     }
-    
+    */
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
