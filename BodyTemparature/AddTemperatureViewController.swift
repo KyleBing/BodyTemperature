@@ -16,7 +16,6 @@ class AddTemperatureViewController: UIViewController, UITextFieldDelegate {
             textField.delegate = self
         }
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         textField.becomeFirstResponder()
     }
@@ -24,7 +23,6 @@ class AddTemperatureViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "当前体温"
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -41,7 +39,6 @@ class AddTemperatureViewController: UIViewController, UITextFieldDelegate {
         if let text = textField.text {
             if let temperature = Double(text) {
                 print(String(describing: temperature))
-                self.dismiss(animated: true, completion: nil)
                 performSegue(withIdentifier: "unwindToTVC", sender: self)
             }
         }

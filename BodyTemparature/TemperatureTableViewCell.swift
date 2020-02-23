@@ -18,6 +18,7 @@ class TemperatureTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.labelDate.textColor = Colors.lightGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

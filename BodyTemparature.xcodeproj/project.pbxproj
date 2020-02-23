@@ -337,6 +337,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kylebing.BodyTemparature;
 				PRODUCT_NAME = "体温";
 				SWIFT_VERSION = 5.0;
@@ -357,6 +358,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.kylebing.BodyTemparature;
 				PRODUCT_NAME = "体温";
 				SWIFT_VERSION = 5.0;

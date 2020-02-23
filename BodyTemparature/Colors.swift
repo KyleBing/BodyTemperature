@@ -15,4 +15,12 @@ struct Colors {
     static let blue = UIColor(red: 0, green: 122/255, blue: 255/255, alpha: 1)
     static let clockBorder = UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1)
     static let clockFace = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
+    
+    static let lightGray = UIColor { (trait) -> UIColor in
+        if trait.userInterfaceStyle == .light{
+            return UIColor(red: 60/255, green: 60/255, blue: 76/255, alpha: 1)
+        } else {
+            return UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)
+        }
+    }
 }
